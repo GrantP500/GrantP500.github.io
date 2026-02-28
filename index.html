@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grant Paterson | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-transition" id="pageTransition"></div>
+
+<header>
+  <div class="container">
+    <nav>
+      <div><strong>Grant Paterson</strong></div>
+      <div>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container fade-in">
+    <h1>Building sleek & scalable digital experiences.</h1>
+    <p>I design and develop high-performance applications with clean design and powerful functionality.</p>
+    <div class="btn-group">
+      <a href="#projects" class="btn btn-primary nav-link">View My Work</a>
+      <a href="#" class="btn btn-outline">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container fade-in">
+    <h2>About Me</h2>
+    <p>I am a passionate developer focused on crafting modern, user-centric web applications. With a strong foundation in front-end and back-end technologies, I build products that are fast, scalable, and visually refined.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="fade-in">Featured Projects</h2>
+    <div class="projects-grid">
+
+      <div class="card fade-in">
+        <h3>Project One</h3>
+        <p>A full-stack web application with authentication, dashboards, and API integrations.</p>
+        <div class="tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank">Live</a>
+          <a href="#" target="_blank">Code</a>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <h3>Project Two</h3>
+        <p>Modern SaaS landing page optimized for performance and conversions.</p>
+        <div class="tags">
+          <span>React</span><span>API</span><span>Stripe</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank">Live</a>
+          <a href="#" target="_blank">Code</a>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <h3>Project Three</h3>
+        <p>AI-powered analytics dashboard with real-time data visualization.</p>
+        <div class="tags">
+          <span>Python</span><span>PostgreSQL</span><span>TypeScript</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank">Live</a>
+          <a href="#" target="_blank">Code</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container fade-in">
+    <h2>Connect With Me</h2>
+    <p style="color:#aaa; margin-bottom:30px;">Interested in learning more about me or want to discuss projects? Find me here.</p>
+    <div class="socials">
+      <a href="#">GitHub</a>
+      <a href="https://www.linkedin.com/in/grant-paterson04/">LinkedIn</a>
+      <a href="mailto:youremail@example.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span id="year"></span> | This Website was built using HTML, CSS and JavaScript
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Page load animation
+  window.addEventListener('load', () => {
+    document.getElementById('pageTransition').classList.add('hidden');
+  });
+
+  // Smooth internal page transitions
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        document.getElementById('pageTransition').classList.remove('hidden');
+        setTimeout(() => {
+          document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('pageTransition').classList.add('hidden');
+        }, 500);
+      }
+    });
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
