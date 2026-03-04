@@ -12,12 +12,6 @@ body {
       animation: gradientBG 15s ease infinite;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 header {
     position: fixed;
     width: 100%;
@@ -203,4 +197,5 @@ footer {
     opacity: 1; 
     transform: translateY(0); 
 }
+
 
